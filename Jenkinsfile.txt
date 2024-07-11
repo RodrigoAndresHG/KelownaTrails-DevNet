@@ -13,18 +13,18 @@ pipeline{
         } 
         stage('Testing Environment'){
             steps{
-            sh 'firebase deploy -P devops-proj-testing --token "$FIREBASE_DEPLOY_TOKEN"'
+            sh 'firebase deploy -P testing-env-devnet-ca019 --token "$FIREBASE_DEPLOY_TOKEN"'
             input message: 'After testing. Do you want to continue with Staging Environment? (Click "Proceed" to continue)'
             }
         } 
         stage('Staging Environment'){
             steps{
-             sh 'firebase deploy -P devops-proj-staging --token "$FIREBASE_DEPLOY_TOKEN"'
+             sh 'firebase deploy -P staging-env-devnet-a6909 --token "$FIREBASE_DEPLOY_TOKEN"'
             }
         } 
         stage('Production Environment'){
             steps{
-            sh 'firebase deploy -P devops-proj-production-bcfd9 --token "$FIREBASE_DEPLOY_TOKEN"'
+            sh 'firebase deploy -P production-env-devnet-1dac2 --token "$FIREBASE_DEPLOY_TOKEN"'
             }
         } 
     }
